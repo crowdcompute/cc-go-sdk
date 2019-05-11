@@ -35,7 +35,7 @@ type CCClient struct {
 	Debug          bool
 }
 
-// New create new rpc client with given url
+// NewCCClient creates new rpc client with given url
 func NewCCClient(url string) *CCClient {
 	rpc := &CCClient{
 		url:            url,
@@ -51,7 +51,6 @@ func fatalIfErr(err error, message string) {
 	}
 }
 
-// rpcError - ethereum error
 type rpcError struct {
 	Code    int    `json:"code"`
 	Message string `json:"message"`
