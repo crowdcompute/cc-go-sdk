@@ -169,8 +169,13 @@ func (rpc *CCClient) RunSwarmService(service string, nodes []string) error {
 	return err
 }
 
-func (rpc *CCClient) StopSwarmService(nodes []string) error {
-	_, err := rpc.call("service_stop", nodes)
+func (rpc *CCClient) LeaveSwarm(nodes []string) error {
+	_, err := rpc.call("service_leave", nodes)
+	return err
+}
+
+func (rpc *CCClient) RemoveSwarmService(serviceName string) error {
+	_, err := rpc.call("service_removeService", serviceName)
 	return err
 }
 
